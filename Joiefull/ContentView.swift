@@ -7,24 +7,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = ClothesViewModel()
+    @EnvironmentObject var network: Network
     
     var body: some View {
-        Group {
-            if viewModel.isLoading {
-                ProgressView("Loading...")
-            } else if let errorMessage = viewModel.errorMessage {
-                Text("Error: \(errorMessage)")
-            } else {
-                CategoryHome()
-            }
-        }
+        CategoryHome()
         .onAppear {
-            viewModel.loadClothes()
+            network.getClothes()
         }
     }
 }
 
+
 #Preview {
     ContentView()
+        .environmentObject(Network())
 }

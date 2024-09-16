@@ -19,7 +19,12 @@
 		E0E0A2152C979461002F22D1 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2142C979461002F22D1 /* CategoryRow.swift */; };
 		E0E0A2172C979476002F22D1 /* CategoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2162C979476002F22D1 /* CategoryHome.swift */; };
 		E0E0A21C2C979B8B002F22D1 /* ClotheViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A21B2C979B8B002F22D1 /* ClotheViewModel.swift */; };
-		E0E0A21E2C97A901002F22D1 /* PreviewClothesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A21D2C97A901002F22D1 /* PreviewClothesViewModel.swift */; };
+		E0E0A2202C97F2BE002F22D1 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A21F2C97F2BE002F22D1 /* ShareButton.swift */; };
+		E0E0A2222C97F45F002F22D1 /* DescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2212C97F45F002F22D1 /* DescView.swift */; };
+		E0E0A2242C97F4E6002F22D1 /* LikeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2232C97F4E6002F22D1 /* LikeInfoView.swift */; };
+		E0E0A2262C97F626002F22D1 /* RateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2252C97F626002F22D1 /* RateButtonView.swift */; };
+		E0E0A2282C97F660002F22D1 /* OpinionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2272C97F660002F22D1 /* OpinionView.swift */; };
+		E0E0A22B2C982595002F22D1 /* PreviewClothesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A22A2C982595002F22D1 /* PreviewClothesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +41,12 @@
 		E0E0A2142C979461002F22D1 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		E0E0A2162C979476002F22D1 /* CategoryHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHome.swift; sourceTree = "<group>"; };
 		E0E0A21B2C979B8B002F22D1 /* ClotheViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClotheViewModel.swift; sourceTree = "<group>"; };
-		E0E0A21D2C97A901002F22D1 /* PreviewClothesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewClothesViewModel.swift; sourceTree = "<group>"; };
+		E0E0A21F2C97F2BE002F22D1 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		E0E0A2212C97F45F002F22D1 /* DescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescView.swift; sourceTree = "<group>"; };
+		E0E0A2232C97F4E6002F22D1 /* LikeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfoView.swift; sourceTree = "<group>"; };
+		E0E0A2252C97F626002F22D1 /* RateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateButtonView.swift; sourceTree = "<group>"; };
+		E0E0A2272C97F660002F22D1 /* OpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionView.swift; sourceTree = "<group>"; };
+		E0E0A22A2C982595002F22D1 /* PreviewClothesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewClothesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 				E0E0A2052C8EDEA1002F22D1 /* Models */,
 				E0E0A2042C8EDE93002F22D1 /* Views */,
 				E0E0A1FA2C8EDCE3002F22D1 /* Assets.xcassets */,
+				E0E0A2292C9824A3002F22D1 /* Ressources */,
 				E0E0A1FC2C8EDCE3002F22D1 /* Preview Content */,
 			);
 			path = Joiefull;
@@ -111,6 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				E0E0A2122C951270002F22D1 /* ErrorView.swift */,
+				E0E0A21F2C97F2BE002F22D1 /* ShareButton.swift */,
+				E0E0A2212C97F45F002F22D1 /* DescView.swift */,
+				E0E0A2232C97F4E6002F22D1 /* LikeInfoView.swift */,
+				E0E0A2252C97F626002F22D1 /* RateButtonView.swift */,
+				E0E0A2272C97F660002F22D1 /* OpinionView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -137,9 +153,16 @@
 			isa = PBXGroup;
 			children = (
 				E0E0A21B2C979B8B002F22D1 /* ClotheViewModel.swift */,
-				E0E0A21D2C97A901002F22D1 /* PreviewClothesViewModel.swift */,
+				E0E0A22A2C982595002F22D1 /* PreviewClothesViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E0E0A2292C9824A3002F22D1 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,13 +238,18 @@
 				E0E0A20F2C8F070B002F22D1 /* ClotheCard.swift in Sources */,
 				E0E0A2172C979476002F22D1 /* CategoryHome.swift in Sources */,
 				E0E0A1F92C8EDCE1002F22D1 /* ContentView.swift in Sources */,
+				E0E0A2282C97F660002F22D1 /* OpinionView.swift in Sources */,
+				E0E0A2202C97F2BE002F22D1 /* ShareButton.swift in Sources */,
+				E0E0A2262C97F626002F22D1 /* RateButtonView.swift in Sources */,
 				E0E0A2152C979461002F22D1 /* CategoryRow.swift in Sources */,
 				E0E0A1F72C8EDCE1002F22D1 /* JoiefullApp.swift in Sources */,
+				E0E0A22B2C982595002F22D1 /* PreviewClothesViewModel.swift in Sources */,
 				E0E0A2112C8F0929002F22D1 /* ClotheDetail.swift in Sources */,
 				E0E0A2132C951270002F22D1 /* ErrorView.swift in Sources */,
+				E0E0A2242C97F4E6002F22D1 /* LikeInfoView.swift in Sources */,
 				E0E0A21C2C979B8B002F22D1 /* ClotheViewModel.swift in Sources */,
+				E0E0A2222C97F45F002F22D1 /* DescView.swift in Sources */,
 				E0E0A20D2C8EF5C1002F22D1 /* Clothe.swift in Sources */,
-				E0E0A21E2C97A901002F22D1 /* PreviewClothesViewModel.swift in Sources */,
 				E0E0A20B2C8EF55D002F22D1 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

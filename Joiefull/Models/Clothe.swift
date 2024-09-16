@@ -11,8 +11,8 @@ struct Clothe: Identifiable, Decodable {
     var name: String
     var category: Category
     var likes: Int
-    var price: String
-    var originalPrice: String
+    var price: Double
+    var originalPrice: Double
     var picture: Picture
 
     enum Category: String, Decodable {

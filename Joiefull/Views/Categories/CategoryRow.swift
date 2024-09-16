@@ -23,6 +23,7 @@ struct CategoryRow: View {
             }
         }
         .padding(.leading, 10)
+        .padding(.bottom, 10)
     }
 }
 

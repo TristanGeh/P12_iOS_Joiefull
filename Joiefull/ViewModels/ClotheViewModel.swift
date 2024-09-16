@@ -20,7 +20,7 @@ class ClothesViewModel: ObservableObject {
         )
     }
     
-    init() {
+    /*init() {
         loadClothes()
     }
     
@@ -40,6 +40,6 @@ class ClothesViewModel: ObservableObject {
                 }
             }
         }
-    }
+    }*/
 }
 
