@@ -2,20 +2,26 @@
 //  ContentView.swift
 //  Joiefull
 //
-//  Created by Tristan Géhanne on 09/09/2024.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ClothesViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+            } else if let errorMessage = viewModel.errorMessage {
+                Text("Error: \(errorMessage)")
+            } else {
+                CategoryHome()
+            }
         }
-        .padding()
+        .onAppear {
+            viewModel.loadClothes()
+        }
     }
 }
 
