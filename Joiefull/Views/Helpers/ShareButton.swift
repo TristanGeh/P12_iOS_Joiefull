@@ -6,32 +6,31 @@
 import SwiftUI
 import UIKit
 
+import SwiftUI
+
 struct ShareButton: View {
-    @State private var isShowingShareSheet = false
-    var body: some View {
-        Button(action: {
-            isShowingShareSheet = true
-        }, label: {
-            Image(systemName: "square.and.arrow.up.circle")
-        })
-        .sheet(isPresented: $isShowingShareSheet, content: {
-            ShareSheet(items: ["test"])
-        })
-    }
-}
-
-struct ShareSheet: UIViewControllerRepresentable {
-    var items: [Any]
+    var clothe: Clothe
+    var comment: String
     
-    func makeUIViewController(context: Context) -> some UIActivityViewController {
-        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        return controller
-    }
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
+    var body: some View {
+        AsyncImage(url: URL(string: clothe.picture.url)) { imagePhase in
+            switch imagePhase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                ShareLink(item: clothe.name,
+                          subject: Text("\(comment)"),
+                          preview: SharePreview("\(clothe.name)", image: image)) {
+                    Image(systemName: "square.and.arrow.up.circle")
+                        .resizable()
+                        .foregroundColor(.black)
+                        .frame(width: 30, height: 30)
+                }
+            case .failure(_):
+                Text("Failed to load image")
+            }
+        }
     }
 }
 
-#Preview {
-    ShareButton()
-}
+

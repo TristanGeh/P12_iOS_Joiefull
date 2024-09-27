@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct OpinionView: View {
-    @State private var text: String = ""
+    @State private var text: String = "Donnez votre avis sur cette pièce"
     
     var body: some View {
         ZStack{
@@ -15,19 +15,12 @@ struct OpinionView: View {
                 .font(.system(size: 12))
                 .foregroundColor(.black)
                 .lineLimit(nil)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-            
-            GeometryReader { geometry in
-                Text("Donnez votre avis sur cette pièce")
-                    .font(.caption)
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                    .position(x: geometry.size.width * 0.3, y: geometry.size.height * 0.434)
-            }
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.gray, lineWidth: 1)
+        )
+        .frame(height: 150)
     }
 }
 

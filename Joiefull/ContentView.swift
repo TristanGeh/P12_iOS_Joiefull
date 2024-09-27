@@ -7,18 +7,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var network: Network
+    @EnvironmentObject var viewModel: ClothesViewModel
     
     var body: some View {
-        CategoryHome()
-        .onAppear {
-            network.getClothes()
+        if viewModel.isLoading {
+            LoadingScreenView()
+        } else {
+            CategoryHome()
+                .environmentObject(viewModel)
         }
     }
 }
 
 
 #Preview {
+    let network = Network()
+    let viewModel = ClothesViewModel(network: network)
     ContentView()
-        .environmentObject(Network())
+        .environmentObject(viewModel)
 }

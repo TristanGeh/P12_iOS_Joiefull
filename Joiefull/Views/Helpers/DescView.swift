@@ -9,27 +9,29 @@ struct DescView: View {
     var clothe: Clothe
     
     var body: some View {
-        VStack {
-            HStack {
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
                 Text(clothe.name)
-                    .font(.system(size: 15, weight: .semibold))
-                Spacer()
-                HStack {
+                    .font(.system(size: 12, weight: .semibold))
+                Text("\(String(format: "%.2f", clothe.price))")
+                    .font(.system(size: 12, weight: .light))
+            }
+            
+            Spacer()
+            
+            VStack(spacing: 5) {
+                HStack(spacing: 2) {
                     Image(systemName: "star.fill")
                         .resizable()
-                        .frame(width: 15, height: 15)
+                        .frame(width: 12, height: 12)
                         .foregroundColor(.yellow)
-                    Text("\(clothe.likes)")
+                    Text("\(clothe.averageRating)")
                         .font(.caption)
                 }
-            }
-            HStack {
-                Text("\(String(format: "%.2f", clothe.price))")
-                    .font(.system(size: 15, weight: .light))
-                Spacer()
+                
                 Text("\(String(format: "%.2f", clothe.originalPrice))")
                     .foregroundColor(Color.black.opacity(0.7))
-                    .font(.system(size: 15, weight: .light))
+                    .font(.system(size: 12, weight: .light))
                     .strikethrough()
             }
         }

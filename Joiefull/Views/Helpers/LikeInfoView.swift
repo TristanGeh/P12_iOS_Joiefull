@@ -8,13 +8,16 @@ import SwiftUI
 struct LikeInfoView: View {
     var clothe: Clothe
     var body: some View {
-        HStack {
-            Image(systemName: "heart")
+        HStack(spacing: 3) {
+            Image(systemName: clothe.isFavorite ? "heart.fill": "heart")
                 .resizable()
-                .frame(width: 13, height: 13)
+                .foregroundColor(clothe.isFavorite ? .red : .black)
+                .frame(width: 12, height: 10)
             Text("\(clothe.likes)")
                 .font(.caption)
+                .fontWeight(.semibold)
         }
+        .foregroundColor(.black)
         .padding(5)
         .background(.white)
         .cornerRadius(25)

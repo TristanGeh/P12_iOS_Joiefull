@@ -6,6 +6,8 @@
 import SwiftUI
 
 struct CategoryRow: View {
+    @EnvironmentObject var viewModel: ClothesViewModel
+    
     var categoryName: String
     var items: [Clothe]
     
@@ -18,6 +20,7 @@ struct CategoryRow: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items) { clothe in
                         ClotheCard(clothe: clothe)
+                            .environmentObject(viewModel)
                     }
                 }
             }
@@ -28,6 +31,10 @@ struct CategoryRow: View {
 }
 
 #Preview {
-    let viewModel = PreviewClothesViewModel()
-    return CategoryRow(categoryName: "TOPS", items: viewModel.clothes)
+    let network = Network()
+    let viewModel = ClothesViewModel(network: network)
+    
+    CategoryHome()
+        .environmentObject(viewModel)
 }
+

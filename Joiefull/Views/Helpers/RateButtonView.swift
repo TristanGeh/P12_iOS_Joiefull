@@ -5,8 +5,10 @@
 
 import SwiftUI
 
-struct RateButtonView: View {
-    @State private var rating: Int = 0
+struct RateButtonView: View{
+    @Binding var ratings: [Int]
+    
+    @State private var minRating: Int = 0
     private let maxRating: Int = 5
     
     var body: some View {
@@ -15,17 +17,14 @@ struct RateButtonView: View {
             
             ForEach(1..<maxRating+1, id: \.self) { index in
                 Button(action: {
-                    rating = index
+                    minRating = index
+                    ratings.append(index)
                 }, label: {
-                    Image(systemName: index <= rating ? "star.fill" : "star")
-                        .foregroundColor(index <= rating ? .yellow : .gray)
+                    Image(systemName: index <= minRating ? "star.fill" : "star")
+                        .foregroundColor(index <= minRating ? .yellow : .gray)
                 })
             }
             Spacer()
         }
     }
-}
-
-#Preview {
-    RateButtonView()
 }

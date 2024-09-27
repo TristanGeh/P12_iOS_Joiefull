@@ -6,8 +6,10 @@
 import SwiftUI
 
 struct ClotheDetail: View {
-    var clothe: Clothe
+    @EnvironmentObject var viewModel: ClothesViewModel
+    @Binding var clothe: Clothe
     
+    @State private var comment: String = ""
     
     var body: some View {
         VStack(spacing: 15) {
@@ -16,28 +18,49 @@ struct ClotheDetail: View {
                     image.image?.resizable()
                         .cornerRadius(15)
                         .scaledToFill()
+                        
                     
                 }
                 .accessibilityLabel(Text(clothe.picture.description))
                 
-                
-                LikeInfoView(clothe: clothe)
-                
-                ShareButton()
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        ShareButton(clothe: clothe, comment: comment)
+                            .padding(.top)
+                            .padding(.trailing)
+                    }
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.toggleFavorite(for: &clothe)
+                        }, label: {
+                            LikeInfoView(clothe: clothe)
+                        })
+                    }
+                    
+                }
             }
+            .frame(maxWidth: 700)
             
             DescView(clothe: clothe)
             
-            RateButtonView()
+            RateButtonView(ratings: $clothe.ratings)
             
             OpinionView()
         }
         .padding()
+        .padding(.top, 65)
     }
 }
 
 #Preview {
-    let clotheTest = Clothe(
+    @Previewable @State var clotheTest = Clothe(
         id: 1,
         name: "Pantalon noir",
         category: .bottoms,
@@ -49,6 +72,9 @@ struct ClotheDetail: View {
             description: "Homme en chemise blanche et pantalon noir assis dans la forêt"
         )
     )
-   return ClotheDetail(clothe: clotheTest)
+    let network = Network()
+    let viewModel = ClothesViewModel(network: network)
+    ClotheDetail(clothe: $clotheTest)
+        .environmentObject(viewModel)
     
 }

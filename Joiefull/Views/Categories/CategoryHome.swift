@@ -6,13 +6,16 @@
 import SwiftUI
 
 struct CategoryHome: View {
-    @EnvironmentObject var network: Network
+    @EnvironmentObject var viewModel: ClothesViewModel
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            ForEach(network.categorizedClothes.keys.sorted(), id: \.self) { category in
-                if let items = network.categorizedClothes[category] {
-                    CategoryRow(categoryName: category, items: items)
+        NavigationStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(viewModel.categorizedClothes.keys.sorted(), id: \.self) { category in
+                    if let items = viewModel.categorizedClothes[category] {
+                        CategoryRow(categoryName: category, items: items)
+                            .environmentObject(viewModel)
+                    }
                 }
             }
         }
@@ -20,6 +23,8 @@ struct CategoryHome: View {
 }
 
 #Preview {
+    let network = Network()
+    let viewModel = ClothesViewModel(network: network)
     CategoryHome()
-        .environmentObject(Network())
+        .environmentObject(viewModel)
 }
