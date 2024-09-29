@@ -9,6 +9,7 @@ import Combine
 class ClothesViewModel: ObservableObject {
     @Published var clothes: [Clothe] = []
     @Published var isLoading = false
+    @Published var searchQuery : String = ""
     
     private var network: Network
     
@@ -19,9 +20,19 @@ class ClothesViewModel: ObservableObject {
     
     var categorizedClothes: [String: [Clothe]] {
         Dictionary(
-            grouping: clothes,
+            grouping: filteredClothes,
             by: { $0.category.rawValue }
         )
+    }
+    
+    var filteredClothes: [Clothe] {
+        if searchQuery.isEmpty {
+            return clothes
+        } else {
+            return clothes.filter { clothe in
+                clothe.name.lowercased().contains(searchQuery.lowercased()) || clothe.category.rawValue.lowercased().contains(searchQuery.lowercased())
+            }
+        }
     }
     
     func loadClothes() {
