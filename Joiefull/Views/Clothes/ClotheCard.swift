@@ -8,10 +8,11 @@ import SwiftUI
 struct ClotheCard: View {
     var clothe: Clothe
     @EnvironmentObject var viewModel: ClothesViewModel
+    @Binding var searchVisible: Bool
     
     var body: some View {
         VStack {
-            NavigationLink(destination: ClotheDetail(clothe: $viewModel.clothes[viewModel.clothes.firstIndex(where: { $0.id == clothe.id})!])) {
+            NavigationLink(destination: ClotheDetail(clothe: $viewModel.clothes[viewModel.clothes.firstIndex(where: { $0.id == clothe.id})!], searchVisible: $searchVisible)) {
                 ZStack(alignment: .bottomTrailing) {
                     AsyncImage(url: URL(string: clothe.picture.url)) { image in
                         image.image?.resizable()
@@ -48,6 +49,8 @@ struct ClotheCard: View {
             description: "Homme en chemise blanche et pantalon noir assis dans la forêt"
         )
     )
-    return ClotheCard(clothe: clotheTest)
+    @State var searchVisible = true
+    
+    ClotheCard(clothe: clotheTest, searchVisible: $searchVisible)
         .environmentObject(viewModel)
 }

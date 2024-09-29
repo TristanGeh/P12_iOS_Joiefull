@@ -8,6 +8,7 @@ import SwiftUI
 struct ClotheDetail: View {
     @EnvironmentObject var viewModel: ClothesViewModel
     @Binding var clothe: Clothe
+    @Binding var searchVisible: Bool
     
     @State private var comment: String = ""
     
@@ -56,6 +57,12 @@ struct ClotheDetail: View {
         }
         .padding()
         .padding(.top, 65)
+        .onAppear {
+            searchVisible = false
+        }
+        .onDisappear {
+            searchVisible = true
+        }
     }
 }
 
@@ -74,7 +81,8 @@ struct ClotheDetail: View {
     )
     let network = Network()
     let viewModel = ClothesViewModel(network: network)
-    ClotheDetail(clothe: $clotheTest)
+    @State var searchVisible = false
+    ClotheDetail(clothe: $clotheTest, searchVisible: $searchVisible)
         .environmentObject(viewModel)
     
 }

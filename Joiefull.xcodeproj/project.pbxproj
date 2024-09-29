@@ -25,6 +25,7 @@
 		E0E0A2242C97F4E6002F22D1 /* LikeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2232C97F4E6002F22D1 /* LikeInfoView.swift */; };
 		E0E0A2262C97F626002F22D1 /* RateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2252C97F626002F22D1 /* RateButtonView.swift */; };
 		E0E0A2282C97F660002F22D1 /* OpinionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E0A2272C97F660002F22D1 /* OpinionView.swift */; };
+		E0EA31DE2CA9B415007D1D65 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EA31DD2CA9B415007D1D65 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		E0E0A2232C97F4E6002F22D1 /* LikeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInfoView.swift; sourceTree = "<group>"; };
 		E0E0A2252C97F626002F22D1 /* RateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateButtonView.swift; sourceTree = "<group>"; };
 		E0E0A2272C97F660002F22D1 /* OpinionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpinionView.swift; sourceTree = "<group>"; };
+		E0EA31DD2CA9B415007D1D65 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -152,6 +154,7 @@
 				E0E0A2252C97F626002F22D1 /* RateButtonView.swift */,
 				E0E0A2272C97F660002F22D1 /* OpinionView.swift */,
 				E0D519B72CA2A24400C7BF64 /* LoadingScreenView.swift */,
+				E0EA31DD2CA9B415007D1D65 /* SearchBarView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				E0E0A2222C97F45F002F22D1 /* DescView.swift in Sources */,
 				E0D519B82CA2A24400C7BF64 /* LoadingScreenView.swift in Sources */,
 				E0E0A20D2C8EF5C1002F22D1 /* Clothe.swift in Sources */,
+				E0EA31DE2CA9B415007D1D65 /* SearchBarView.swift in Sources */,
 				E0E0A20B2C8EF55D002F22D1 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

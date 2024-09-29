@@ -7,6 +7,7 @@ import SwiftUI
 
 struct CategoryRow: View {
     @EnvironmentObject var viewModel: ClothesViewModel
+    @Binding var searchVisible: Bool
     
     var categoryName: String
     var items: [Clothe]
@@ -19,7 +20,7 @@ struct CategoryRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items) { clothe in
-                        ClotheCard(clothe: clothe)
+                        ClotheCard(clothe: clothe, searchVisible: $searchVisible)
                             .environmentObject(viewModel)
                     }
                 }
@@ -33,8 +34,22 @@ struct CategoryRow: View {
 #Preview {
     let network = Network()
     let viewModel = ClothesViewModel(network: network)
+    @State var searchVisible: Bool = false
     
-    CategoryHome()
+    let clotheTest = Clothe(
+        id: 1,
+        name: "Pantalon noir",
+        category: .bottoms,
+        likes: 54,
+        price: 49.99,
+        originalPrice: 69.99,
+        picture: Clothe.Picture(
+            url: "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Cr-ez-une-interface-dynamique-et-accessible-avec-SwiftUI/main/img/bottoms/2.jpg",
+            description: "Homme en chemise blanche et pantalon noir assis dans la forêt"
+        )
+    )
+    
+    CategoryRow(searchVisible: $searchVisible, categoryName: clotheTest.category.rawValue , items: [clotheTest])
         .environmentObject(viewModel)
 }
 
